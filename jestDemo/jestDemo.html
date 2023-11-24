@@ -1,0 +1,31 @@
+<template>
+    <!-- Simple content test -->
+    <p>{someStuffAsParagraph}</p>
+    
+    <!-- Template Iterators test -->
+    <template for:each={someExitingStuff} for:item="stuffItem" for:index="index">
+        <p class="stuffInfo" key={stuffItem.id}>Stuff by name: {stuffItem.name}, index {index}</p>
+    </template>
+
+    <!-- Wire adapter test -->
+    <template for:each={wiredAccounts.data} for:item="wiredAccount" for:index="index">
+        <div class="accountInfo" key={wiredAccount.Id}>
+            {wiredAccount.Name}
+        </div>
+    </template>
+
+    <!-- Condition Rendering test -->
+    <lightning-button class="paragraphRenderButton" onclick={rederNewParagraph}></lightning-button>
+    <template lwc:if={showNewParagraph}>
+        <p class="newParagraph">Wow I love new stuff</p>
+    </template>
+
+    <!-- Current Page Reference test -->
+    <div class="currentPageReference">
+        {currentPage}
+    </div>
+
+    <!-- Imperative Apex calls test -->
+    <lightning:button class="imperativeCasesCall"></lightning:button>
+    <c-jest-demo-child case-data={imperativeCases}></c-jest-demo-child>
+</template>
